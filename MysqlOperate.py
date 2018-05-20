@@ -28,3 +28,12 @@ class Mysql():
         result = self.cursor.fetchone()
         return result[0]
 
+    def one(self,sql):
+        self.cursor.execute(sql)
+        result = self.cursor.fetchone()
+        return result
+
+    def __del__(self):
+        self.cursor.close()
+        self.conn.close()
+
